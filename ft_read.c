@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 17:04:43 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/20 15:12:01 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:52:53 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char			*ft_read_arg(int argc, char **argv, int i)
 	char	*str;
 
 	x = 1;
-	str = malloc(sizeof(char) * (ft_count(argc, argv) + 1));
+	str = malloc(sizeof(char) * (ft_count_arg(argc, argv) + 1));
 	while (x < argc)
 	{
 		fd = open(argv[x], O_RDONLY);
