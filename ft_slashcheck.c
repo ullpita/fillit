@@ -3,25 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_slashcheck.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/20 17:15:13 by upierre-          #+#    #+#             */
-/*   Updated: 2016/01/20 17:34:07 by upierre-         ###   ########.fr       */
+/*   Created: 2016/01/20 17:02:57 by mbompoil          #+#    #+#             */
+/*   Updated: 2016/01/20 17:29:36 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_slashcheck(char *str)
+int			ft_slashcheck(char *str)
 {
-	while (str[21])
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (i < 21)
 	{
-		str + 5;
-		if (*str != '\n')
+		i++;
+		j++;
+		if (str[i] == '\n' && j == 5)
+			j = 0;
+		else
 			return (0);
 	}
-	if (str[21] == '\n')
+	if (str[i + 1] == '\n')
 		return (1);
+	return (0);
 }
-
-LOL
