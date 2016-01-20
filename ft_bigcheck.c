@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_bigcheck.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/19 16:56:39 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/20 15:10:06 by upierre-         ###   ########.fr       */
+/*   Created: 2016/01/20 15:05:08 by upierre-          #+#    #+#             */
+/*   Updated: 2016/01/20 15:23:49 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+static int		ft_grillecheck()
+{
+	while (str)
+	{
+		if (*str == '.')
 
-char	*ft_read_arg(int argc, char **argv, int i);
-int		ft_bigcheck()
-#endif
+	}
+}
+
+static int		ft_tetricheck()
+{
+
+}
+
+int				ft_bigcheck()
+{
+	if (ft_grillecheck(str) == 0 || ft_tetricheck(str) == 0)
+		return (0);
+	else
+		return (1);
+}

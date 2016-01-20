@@ -6,14 +6,14 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 17:04:43 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/19 17:37:13 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/20 15:12:01 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "fillit.h"
 
-int		ft_count(int argc, char **argv)
+static int		ft_count_arg(int argc, char **argv)
 {
 	int		x;
 	int		ret;
@@ -35,7 +35,7 @@ int		ft_count(int argc, char **argv)
 	return (i);
 }
 
-char	*ft_read_arg(int argc, char **argv, int i)
+char			*ft_read_arg(int argc, char **argv, int i)
 {
 	int		x;
 	int		ret;

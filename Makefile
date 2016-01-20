@@ -6,7 +6,7 @@
 #    By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/19 17:26:24 by mbompoil          #+#    #+#              #
-#    Updated: 2016/01/20 14:51:49 by upierre-         ###   ########.fr        #
+#    Updated: 2016/01/20 15:12:15 by upierre-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ HEAD = fillit.h
 
 FILES = main.c \
 		ft_read.c \
-		ft_tetricheck.c \
+		ft_bigcheck.c \
 
 BINARIES = $(FILES:.c=.o)
 
