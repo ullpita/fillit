@@ -6,13 +6,13 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 16:15:17 by upierre-          #+#    #+#             */
-/*   Updated: 2016/01/20 16:23:48 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/01/20 16:57:26 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_strijcheck()
+int		ft_strijcheck(char *str)
 {
 	i = 12;
 	j = 4;
@@ -20,19 +20,15 @@ int		ft_strijcheck()
 	while (str)
 	{
 		if (*str == '.')
-		{
 			i--;
-			str++;
-		}
 		if (*str == '#')
-		{
 			j--;
-			str++;
-		}
 		if (*str == '\n')
-			str++
+		str++;
+		else
+			break;
 	}
-	if (i + j == 0)
-		return (1);
-	return (0);
+	if (!(i + j == 0))
+		return (0);
+	return (1);
 }

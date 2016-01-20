@@ -6,17 +6,17 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:05:08 by upierre-          #+#    #+#             */
-/*   Updated: 2016/01/20 15:23:49 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:29:20 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int		ft_grillecheck()
+static int		grillecheck()
 {
-	while (str)
-	{
-		if (*str == '.')
+	if (!(ft_strijcheck()))
+		return (ft_maperror());
+	if (!(ft_slashcheck))
+		return (ft_maperror());
 
-	}
 }
 
 static int		ft_tetricheck()

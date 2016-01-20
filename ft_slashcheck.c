@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_slashcheck.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/19 16:56:39 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/20 17:29:10 by upierre-         ###   ########.fr       */
+/*   Created: 2016/01/20 17:15:13 by upierre-          #+#    #+#             */
+/*   Updated: 2016/01/20 17:27:31 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+#include "fillit.h"
 
-char	*ft_read_arg(int argc, char **argv, int i);
-int		ft_bigcheck();
-int		ft_strijcheck(char *str);
-int		ft_slashcheck(charc c);
-#endif
+int		ft_slashcheck(char *str)
+{
+	while (str[21])
+	{
+		str + 5;
+		if (*str != '\n')
+			return (0);
+	}
+	if (str[21] == '\n')
+		return (1);
+}

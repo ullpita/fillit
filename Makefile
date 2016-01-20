@@ -6,7 +6,7 @@
 #    By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/19 17:26:24 by mbompoil          #+#    #+#              #
-#    Updated: 2016/01/20 16:26:59 by upierre-         ###   ########.fr        #
+#    Updated: 2016/01/20 17:28:25 by upierre-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ FILES = main.c \
 		ft_read.c \
 		ft_bigcheck.c \
 		ft_strijcheck.c \
+		ft_slashcheck.c \
 
 BINARIES = $(FILES:.c=.o)
 
