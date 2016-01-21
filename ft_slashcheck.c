@@ -6,12 +6,11 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 17:02:57 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/20 18:57:59 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/21 13:50:17 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 int			ft_slashcheck(char *str)
 {
@@ -21,9 +20,7 @@ int			ft_slashcheck(char *str)
 	while (i < 20)
 	{
 		if (str[i] != '\n')
-		{
 			return (0);
-		}
 		i += 5;
 	}
 	return (1);
