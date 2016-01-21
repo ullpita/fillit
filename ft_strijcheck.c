@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 16:15:17 by upierre-          #+#    #+#             */
-/*   Updated: 2016/01/21 13:50:15 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/01/21 17:51:15 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,25 @@ int		ft_strijcheck(char *str)
 	int		p;
 	int		j;
 
-	i = 0
+	i = 0;
 	p = 12;
 	j = 4;
-	while (i <= 21)
+	while (i < 20)
 	{
-		if (str[i] == '.')
-			p--;
-		if (str[i] == '#')
-			j--;
-		if (str[i] == '\n')
-			i++;
-		else
+		if (str[i] != '.' && str[i] != '#' && str[i] != '\n')
+		{
 			return (0);
+		}
+		else
+		{
+			if (str[i] == '.')
+				p--;
+			if (str[i] == '#')
+				j--;
+			i++;
+		}
 	}
-	if (!(p + j == 0))
+	if (!(j == 0 && p == 0))
 		return (0);
 	return (1);
 }

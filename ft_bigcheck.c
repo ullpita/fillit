@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:05:08 by upierre-          #+#    #+#             */
-/*   Updated: 2016/01/21 13:50:59 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/01/21 16:51:34 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_grillecheck(char *str)
 {
-//	if (!(ft_strijcheck(str)))
-//		return (0);
+	if (!(ft_strijcheck(str)))
+		return (0);
 	if (!(ft_slashcheck(str)))
 		return (0);
 	else
