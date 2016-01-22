@@ -6,13 +6,31 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 14:52:10 by upierre-          #+#    #+#             */
-/*   Updated: 2016/01/21 13:50:40 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/01/22 16:24:54 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_tetricheck()
+int		ft_tetricheck(char *str)
 {
-	
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (i <= 20)
+	{
+		if (str[i] == '#')
+		{
+			if (str[i + 1] == '#' || str[i - 1] == '#' || str[i + 5] == '#' ||
+					str[i - 5] == '#')
+				j++;
+			if (j == 0)
+				return (0);
+			j = 0;
+		}
+		i++;
+	}
+	return (1);
 }
