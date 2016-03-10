@@ -20,10 +20,17 @@ void	ft_error(void)
 
 void	ft_start_algo(char **tab)
 {
+	int	nbt;
 	char *map;
 	
-	map = ft_memalloc(sizeof(*char) * 220000 + 1)
-	map = add_tetri_map(tab, map)	
+	while (tab[i])
+	{
+		nbt++;
+		i++;
+	}
+	map = ft_memalloc(sizeof(*map) * 22000);
+	map = add_tetri_map(tab, map);
+	map = algo_map(map)
 }
 
 int		main(int argc, char **argv)
