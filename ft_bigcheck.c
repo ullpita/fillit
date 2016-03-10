@@ -6,13 +6,13 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:05:08 by upierre-          #+#    #+#             */
-/*   Updated: 2016/01/22 16:21:59 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/02/02 14:50:12 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_grillecheck(char *str)
+static int		ft_grillecheck(char *str)
 {
 	if (!(ft_strijcheck(str)))
 		return (0);
@@ -23,17 +23,26 @@ int		ft_grillecheck(char *str)
 
 }
 
-int		ft_tetrichecky(char *str)
+static int		ft_tetrichecky(char *str)
 {
 	if (!(ft_tetricheck(str)))
 		return (0);
 	return (1);
 }
 
-int				ft_bigcheck(char *str)
+int				ft_bigcheck(char **tab)
 {
-	if (ft_grillecheck(str) == 0 || ft_tetrichecky(str) == 0)
+	int		i;
+
+	i = 0;
+	if (tab[i] == NULL)
 		return (0);
-	else
-		return (1);
+	while (tab[i])
+	{
+		if (ft_grillecheck(tab[i]) == 0 || ft_tetrichecky(tab[i]) == 0)
+			return (0);
+		else
+			i++;
+	}
+	return (1);
 }

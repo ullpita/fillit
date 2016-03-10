@@ -6,11 +6,12 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 17:21:32 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/27 17:07:45 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/01/28 17:52:31 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 char	*ft_strsub(char *s1, unsigned int start, size_t len)
 {

@@ -6,46 +6,38 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 14:55:25 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/01/27 18:08:10 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/02/03 17:23:21 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+//#include <stdio.h>
 
 static int		ft_count(char *s, char c)
 {
 	int		count;
-	int		sec;
+	int		blash;
+	int		i;
 
+	i = 0;
 	count = 0;
-	sec = 0;
-	while (*s)
+	blash = 0;
+	while (s[i] != '\0')
 	{
-		if (sec == 0 && *s != c && *s - 1 == c)
-		{
-			sec = 1;
+		if (s[i] == c)
+			blash++;
+		if (s[i] != c)
+			blash = 0;
+		if (blash == 2 || s[i + 1] == '\0')
 			count++;
-		}
-		else if (sec == 1 && *s == c && *s - 1 == c)
-			sec = 0;
-		s++;
+		i++;
+	}
+	if ((i + 1) % 21 != 0)
+	{
+		//write (1, "error21\n", 8);
+		return (0);
 	}
 	return (count);
-}
-
-static size_t	ft_len(char *s, char c)
-{
-	size_t	len;
-
-	if (!s)
-		return (0);
-	len = 0;
-	while (*s && *s != c && *s - 1 == c)
-	{
-		len++;
-		s++;
-	}
-	return (len);
 }
 
 char			**ft_strsplit(char *s, char c)
@@ -63,10 +55,15 @@ char			**ft_strsplit(char *s, char c)
 	{
 		while (*s == c && *s)
 			s++;
-		if (!(tab[j] = ft_strsub(s, 0, ft_len(s, c))))
+		if (!(tab[j] = ft_strsub(s, 0, 20)))
 			return (NULL);
-		s = s + ft_len(s, c);
+		s = s + 21;
 		j++;
 	}
+	
+	//printf("%s\n", tab[0]);
+	//printf("%s\n", tab[1]);
+	//printf("%s\n", tab[2]);
+	//printf("%s\n", tab[3]);
 	return (tab);
 }
