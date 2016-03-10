@@ -35,78 +35,12 @@ static char			*add_tetri_map(char **tab, char *map)
 				j--;
 				m--;
 			}
-			i++
+			i++;
 		}
 		return (map);
 }
 
-static char     *adjust_map_onetwo(char *resumap, int m)
-{
-   	if (m = 1)
-	{
-		resumap[2] = '\n'
-		resumap[5] = '\n'
-		return (resumap);
-	}
-	if (m = 2)
-	{
-		resumap[3] = '\n'
-		resumap[7] = '\n'
-		resumap[11] = '\n'
-		return (resumap);
-	}
 
-}
-
-static char     *adjust_map_firstime(char *resumap, int mapmin, int i, int n)
-{
-	while (n <= 4)
-	{
-		if (i == mapmin)
-		{
-			resumap[mapmin + 1] == '\n';
-			mapmin += mapmin;
-			n++;
-			i += 2;//il faut incrementer de 2 car il faut passer au caractere apres le '\n' quon vient d'ajouter en + 1 
-		}
-		else
-		{
-			resumap[i] == '.';
-			i++;
-		}
-	}
-	return (resumap);
-}
-
-static char     *adjust_map(char *resumap, int mapmin, int i, int n)
-{
-	mapmin = 0;
-	while resumap[i] != '\n'
-	{
-		i++;
-		mapmin++;
-	}
-	while (n <= 4)
-	{
-		if (resumap[i] == '\n')
-		{
-			resumap[i] == '.';
-			n++;
-		}
-		if (resumap[i] != '.' && != '\n')//parce qu'il va y avoir les lettres de la map precedente
-			{
-				resumap[i] == '.'
-			}
-		i++;
-	}
-	while (n >= 0)
-	{
-		resumap[mapmin + 1] == '\n';
-		mapmin += mapmin;
-		n--;
-    }
-	return (resumap);
-}
 
 static char			adjust_map(char *resumap , int m = 1 /*nb de tetri, mais apres ce n'est plus en rapport avec le nb de tetri*/, int c = 1/*si on y arrive du premier coup on juste decaler '/n' a droite pas refaire algo*/)
 {
@@ -115,46 +49,17 @@ static char			adjust_map(char *resumap , int m = 1 /*nb de tetri, mais apres ce 
 		int		mapmin;
 	
 		//il faut gerer les deux exceptions ou il n'y a pas 4 '\n'
-		if (m == 1 || m == 2)
-		{
-		    resumap = adjust_map_onetwo(resumap, m);
-			return (resumap);
-		}
-		i = 0;
-		n = 0;
-		mapmin = 1;
-		while ((mapmin * mapmin) < (m * 4))
-			mapmin++;
-		if (c == 1)//si c'est la premiere fois qu'on appelle adjust_map
-		{
-		    resumap = adjust_map_firstime(resumap, mapmin, i, n);
-		    return (resumap);
-		}
-		if (c > 1)
-		{
-		    resumap = adjust_map(resumap, mapmin, i, n);
-		    return (resumap);
-		}
-
-
-/*static char			adjust_map(char *resumap , int m = 1 /*nb de tetri, mais apres ce n'est plus en rapport avec le nb de tetri*/, int c = 1/*si on y arrive du premier coup on juste decaler '/n' a droite pas refaire algo*/)/*
-{
-		int		i;
-		int		n;
-		int		mapmin;
-	
-		//il faut gerer les deux exceptions ou il n'y a pas 4 '\n'
 		if (m = 1)
 		{
-			map[2] = '\n'
-			map[5] = '\n'
+			map[2] = '\n';
+			map[5] = '\n';
 			return (resumap);
 		}
 		if (m = 2)
 		{
-			map[3] = '\n'
-			map[7] = '\n'
-			map[11] = '\n'
+			map[3] = '\n';
+			map[7] = '\n';
+			map[11] = '\n';
 			return (resumap);
 		}
 		i = 0;
@@ -206,10 +111,10 @@ static char			adjust_map(char *resumap , int m = 1 /*nb de tetri, mais apres ce 
 			}
 		}
 		return (resumap);
-}*/
+}
 
 
-static char			tetri_base_map(char resumap, nbt, int r/*decrmenente a chaque fois quon appelle la fct et que dc il y a un '\n'*/, int a/*le nombre de tetri*/) 
+static char			tetri_base_map(char resumap, int a, int nbt, int r/*decrmenente a chaque fois quon appelle la fct et que dc il y a un '\n'*/) 
 {
 		char	alpha[28];
 		int		i;
@@ -240,9 +145,9 @@ static char			tetri_base_map(char resumap, nbt, int r/*decrmenente a chaque fois
 			if ((i - r) > c)
 			{
 				if (!(a == nbt))
-					tetri_base_map(a + 1);
+					tetri_base_map(a + 1, r = 0);
 				adjust_map(m + 1);
-				//et ensuite refaire tetri_base_map
+				//et ensuite refaire tetri_base_map (a = 0, r = 0)
 			}
 			i++;
 		}
@@ -299,9 +204,14 @@ static char			algo_map(char *resumap, int r /*commence a 0 et on decremente*/, i
 					}
 					if ((i - r) > c)//on check apres qu'on a place le tetri pour savoir si on a pas depasse la map
 					{
-						if (!(a == nbt && basetetri soit le plus a droite possible dans base_tetri))//si on l'appelle de algo_map et que r-1 ne peux pas se realiser renvoie null et donc adjustmap (m + 1)
+						tetri_base_map(r - 1);
+					
+					/*	if (a == nbt && basetetri soit le plus a droite possible dans base_tetri)//si on l'appelle de algo_map et que r-1 ne peux pas se realiser renvoie null et donc adjustmap (m + 1)
+							adjust_map(m + 1);
+						if (!(basetetri est le plus a droite possible))
 							base_tetri(r - 1);//on decale donc le tetri de base un cran a droite et ensuite il faut rappeler algo_map
-						adjust_map(m + 1);
+						base_tetri(a + 1)
+					*/
 					}
 				}
 			}
@@ -313,8 +223,6 @@ static char			algo_map(char *resumap, int r /*commence a 0 et on decremente*/, i
 }
 
 
-
-le pb c'est quon ne sait pas ou on en est dans basetri, cad que si dans basetetri on a pas essaye ac toutes les lettres on va agrandir notre map pour rien mm si alpha[a] c'est 'z' dans algo_map
 
 
 
