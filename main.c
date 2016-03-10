@@ -13,6 +13,19 @@
 #include "fillit.h"
 #include <stdio.h>
 
+void	ft_error(void)
+{
+	
+}
+
+void	ft_start_algo(char **tab)
+{
+	char *map;
+	
+	map = ft_memalloc(sizeof(*char) * 220000 + 1)
+	map = add_tetri_map(tab, map)	
+}
+
 int		main(int argc, char **argv)
 {
 	char	*str;
@@ -27,8 +40,11 @@ int		main(int argc, char **argv)
 	}
 	tab	= ft_strsplit(str, '\n');
 	if (!(ft_bigcheck(tab)))
+	{
 		write(1, "error\n", 6);
-	else
-		write(1, "ok\n", 3);
+		return (0);
+	}
+	tab = ft_alphamino(tab);
+	ft_start_algo(tab)
 	return (0);
 }
