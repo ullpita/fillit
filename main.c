@@ -20,9 +20,11 @@ void	ft_error(void)
 
 void	ft_start_algo(char **tab)
 {
+	int	r;
 	int	nbt;
 	char *map;
 	
+	r = 0;
 	while (tab[i])
 	{
 		nbt++;
@@ -30,7 +32,7 @@ void	ft_start_algo(char **tab)
 	}
 	map = ft_memalloc(sizeof(*map) * 22000);
 	map = add_tetri_map(tab, map);
-	map = algo_map(map)
+	map = algomino(map, r, nbt);
 }
 
 int		main(int argc, char **argv)
