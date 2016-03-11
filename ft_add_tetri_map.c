@@ -1,11 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_add_tetri_map.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/11 14:27:42 by upierre-          #+#    #+#             */
+/*   Updated: 2016/03/11 14:28:34 by upierre-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fillit.h"
+
 char			*ft_add_tetri_map(char **tab, char *map)
 {
 	int		i;
 	int		j;
 	int		m;
-	
+
 	i = 0;
-	m = 22000
+	m = 22000;
 	//ne pas oublier de rajouter un 0 dans un dernier tab[i] dans le split 
 	while (tab[i])
 		i++;

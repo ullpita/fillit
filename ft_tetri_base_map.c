@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:15:35 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/11 13:16:03 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/11 14:29:41 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char			*ft_tetri_base_map(char *map, int nbt, int r/*decrmenente a chaque
 	int		n;
 	int		c;
 
-	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ;"
+	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	i = 0;
 	n = 0;		
 	while (n < 4)
