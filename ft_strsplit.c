@@ -6,11 +6,12 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 14:55:25 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/02/03 17:23:21 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/11 14:24:58 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
 //#include <stdio.h>
 
 static int		ft_count(char *s, char c)
@@ -60,7 +61,6 @@ char			**ft_strsplit(char *s, char c)
 		s = s + 21;
 		j++;
 	}
-	
 	//printf("%s\n", tab[0]);
 	//printf("%s\n", tab[1]);
 	//printf("%s\n", tab[2]);

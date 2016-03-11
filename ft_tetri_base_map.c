@@ -1,4 +1,18 @@
-sttatic char			*ft_tetri_base_map(char *map, int nbt, int r/*decrmenente a chaque fois quon appelle la fct et que dc il y a un '\n'*/, int a)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tetri_base_map.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/11 13:15:35 by upierre-          #+#    #+#             */
+/*   Updated: 2016/03/11 13:16:03 by upierre-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fillit.h"
+
+static char			*ft_tetri_base_map(char *map, int nbt, int r/*decrmenente a chaque fois quon appelle la fct et que dc il y a un '\n'*/, int a)
 {
 	char	alpha[28];
 	int		i;
@@ -42,4 +56,3 @@ sttatic char			*ft_tetri_base_map(char *map, int nbt, int r/*decrmenente a chaqu
 	}
 	return (map);
 }
-

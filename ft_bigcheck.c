@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 15:05:08 by upierre-          #+#    #+#             */
-/*   Updated: 2016/02/02 14:50:12 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/11 14:20:56 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static int		ft_grillecheck(char *str)
 		return (0);
 	else
 		return (1);
-
 }
 
 static int		ft_tetrichecky(char *str)

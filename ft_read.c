@@ -6,13 +6,12 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 17:04:43 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/02/02 15:15:04 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/11 14:22:55 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "fillit.h"
-#include <stdio.h>
+
 static int		ft_count_arg(int argc, char **argv)
 {
 	int		ret;
