@@ -13,9 +13,26 @@
 #include "fillit.h"
 #include <stdio.h>
 
+static void    ft_print_map(char *map, int nb(nombre de caractere -> dernier \n))
+{
+    int i;
+    
+    i = 0;
+    while (i != nb)
+    {
+        ft_putchar(map[i]);
+        i++;
+    }
+    return (map);
+}
+
+
+
+
 void	ft_error(void)
 {
-	
+	avance dans le main !
+	en plus hier tu n'as pas fait la separation avec le nouveau adjustmap tu as fait un copier coller de ce que tu avais fait nan ?
 }
 
 void	ft_start_algo(char **tab)
@@ -33,6 +50,7 @@ void	ft_start_algo(char **tab)
 	map = ft_memalloc(sizeof(*map) * 22000);
 	map = add_tetri_map(tab, map);
 	map = algomino(map, r, nbt);
+	ft_print_map(map);
 }
 
 int		main(int argc, char **argv)
