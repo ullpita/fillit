@@ -12,119 +12,89 @@
 
 #include "fillit.h"
 
-void	ft_je(char *map)
+static int		ft_size_map(char *map)
 {
-	int	l;
-	l = 0;
-		while (l < 4)
+	int		i;
+	int		c;
+	int		n;
+	
+	i = 0;
+	c = 0;
+	n = 0;
+	while (map[i] && n < 4)
+	{
+		if (map[i] == '\n')
+			n++;
+		i++;
+		c++;
+	}
+	return (c)
+}
+
+static char		ft_basetetri(char *map)
+{
+	int		i;
+	char	basetetri;
+	
+	i = 0;
+	while (map[i] == '.' || map[i] == '\n')
+	{
+		i++;
+	}
+	bastetri = map[i];
+	return (basetetri);
+}
+
+static			ft_algo_map(char *map, int c, int r, int a)
+{
+	int		i;
+	int		l;
+	
+	i = 0
+	while (l < 4)
+	{
+		if (map[i] == alpha[a] && alpha[a] != basetetri && map[i - r] == '.')
 		{
-			if (map[i] == alpha[a] && alpha[a] != basetetri && map[i - r] == '.')
+			while (map[i] && l < 4) /*notre compteur de lettre d'un tetri qui evite d'aller jusquau bout de map*/
 			{
-				while (map[i] && l < 4) /*notre compteur de lettre d'un tetri qui evite d'aller jusquau bout de map*/
+				if (map[i] == alpha[a] && map[i - r] == '.')
 				{
-					if (map[i] == alpha[a] && map[i - r] == '.')
-					{
-						map[i - r] == alpha[a];
-						l++;
-					}
-					if (map[i] == alpha[a] && map[i - r] != '.' )
-						algo_map(r - 1);
-					i++;
+					map[i - r] == alpha[a];
+					l++;
 				}
-				if ((i - r) > c)
-				{
-					tetri_base_map(char *map, int nbt, int r - 1, int a)
-					//if (!(a == nbt && basetetri soit le plus a droite possible dans base_tetri))//si on l'appelle de algo_map et que r-1 ne peux pas se realiser renvoie null et donc adjustmap (m + 1)
-					//
-					//base_tetri(r - 1);//on decale donc le tetri de base un cran a droite et ensuite il faut rappeler algo_map
-					//adjust_map(m + 1);
-				}
+				if (map[i] == alpha[a] && map[i - r] != '.' )
+					algo_map(r - 1);
+				i++;
 			}
+			if ((i - r) > c)
+				tetri_base_map(char *map, int nbt, int r - 1, int a)
 		}
-		i = 0;
-		r = 0;
-		a++;
+	return (map);
 	}
 }
-	
 
-
-static char			*algo_map(char *map, int r/* = 0 et on decremente*/, int nbt)
+char			*ft_algomino(char *map, int r/* = 0 et on decremente*/, int nbt)
 {
 	char	alpha[28];
 	char	basetetri;
 	int		i;
 	int		c;
 	int		a;
-	int		l;
 	
-	i = 0;
-	while (map[i] == '.' || map[i] == '\n')
-		i++;
-	bastetri == map[i];
-	a = 0;
-	c = 0;
-	i = 0;
-	while (map[i] && a < 4)
-	{
-		if (map[i] == '\n')
-		a++;
-		i++;
-		c++;
-	}
-	i = 0;
+	c = ft_size_map(map)
+	basetetri = ft_basetetri(map)
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	i = 0;
+	a = 0;
 	while (a <= nbt)
 	{
 		while (map[i] != alpha[a])
-		{
 			i++;
-			r++;
-		}
-		l = 0;
-		while (l < 4)
-		{
-			if (map[i] == alpha[a] && alpha[a] != basetetri && map[i - r] == '.')
-			{
-				while (map[i] && l < 4) /*notre compteur de lettre d'un tetri qui evite d'aller jusquau bout de map*/
-				{
-					if (map[i] == alpha[a] && map[i - r] == '.')
-					{
-						map[i - r] == alpha[a];
-						l++;
-					}
-					if (map[i] == alpha[a] && map[i - r] != '.' )
-						algo_map(r - 1);
-					i++;
-				}
-				if ((i - r) > c)
-				{
-					tetri_base_map(char *map, int nbt, int r - 1, int a)
-					//if (!(a == nbt && basetetri soit le plus a droite possible dans base_tetri))//si on l'appelle de algo_map et que r-1 ne peux pas se realiser renvoie null et donc adjustmap (m + 1)
-					//
-					//base_tetri(r - 1);//on decale donc le tetri de base un cran a droite et ensuite il faut rappeler algo_map
-					//adjust_map(m + 1);
-				}
-			}
-		}
+		r = i;
+		map = ft_algo_map()
 		i = 0;
 		r = 0;
 		a++;
 	}
 	return (map);
 }
-
-char			ft_algomino()
-{
-	
-}
-
-
-
-
-
-
-
-
-
-
