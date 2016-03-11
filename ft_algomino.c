@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "fillit.h"
-
-
-
 
 static char			*algomino(char *map, int r/* = 0 et on decremente*/, int nbt)
 {
