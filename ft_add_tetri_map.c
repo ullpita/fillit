@@ -20,7 +20,6 @@ char			*ft_add_tetri_map(char **tab, char *map)
 
 	i = 0;
 	m = 22000;
-	//ne pas oublier de rajouter un 0 dans un dernier tab[i] dans le split 
 	while (tab[i])
 		i++;
 	while (i >= 0)

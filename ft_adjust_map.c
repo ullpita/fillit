@@ -12,14 +12,14 @@
 
 #include "fillit.h"
 
-static char		*ft_adjust_onetwo(char *map, int m)
+static char		*ft_adjust_onetwo(char *map, int nbt)
 {
-	if (m = 1)
+	if (nbt = 1)
 	{
 		map[2] = '\n';
 		map[5] = '\n';
 	}
-	if (m = 2)
+	if (nbt = 2)
 	{
 		map[3] = '\n';
 		map[7] = '\n';
@@ -77,21 +77,21 @@ static char		*ft_adjust_bigger(char *map, int mapmin, int i, int n)
 	return (map);
 }
 
-char			*ft_adjust_map(char *map, int m, int c)
+char			*ft_adjust_map(char *map, int nbt, int c)
 {
 	int		i;
 	int		n;
 	int		mapmin;
 
-	if (m == 1 || m == 2)
+	if (nbt == 1 || nbt == 2)
 	{
-		map = adjust_map_onetwwo(map, m);
+		map = adjust_map_onetwwo(map, nbt);
 		return (map);
 	}
 	i = 0;
 	n = 0;
 	mapmin = 1;
-	while ((mapmin * mapmin) < (m * 4))
+	while ((mapmin * mapmin) < (nbt * 4))
 		mapmin++;
 	if (c == 1)
 	{

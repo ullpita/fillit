@@ -32,7 +32,7 @@ static char		*ft_tetri_base_algo(char *map, a, r, c)
 		{
 			if (!(a == nbt))
 				ft_tetri_base_map(a + 1);
-			ft_adjust_map(m + 1);
+			ft_adjust_map(nbt + 1);
 			//et ensuite refaire ft_tetri_base_map()
 		}
 		i++;

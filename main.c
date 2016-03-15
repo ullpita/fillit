@@ -27,12 +27,9 @@ static void    ft_print_map(char *map, int nb(nombre de caractere -> dernier \n)
 }
 
 
-
-
 void	ft_error(void)
 {
-	avance dans le main !
-	en plus hier tu n'as pas fait la separation avec le nouveau adjustmap tu as fait un copier coller de ce que tu avais fait nan ?
+	
 }
 
 void	ft_start_algo(char **tab)
@@ -75,3 +72,9 @@ int		main(int argc, char **argv)
 	ft_start_algo(tab)
 	return (0);
 }
+
+map = ft_add_tetri_map(*tab, map);
+map = ft_adjust_map(map, nbtadjust = ft_nbt, c = 1)
+map = ft_tetri_base_map(map, rtetri = 0, a = 0);
+map = ft_algomino(map, ralgo = 0, nbtetri = 0)
+

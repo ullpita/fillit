@@ -12,89 +12,74 @@
 
 #include "fillit.h"
 
-static int		ft_size_map(char *map)
+static char				*ft_loop_algo(char *map, nbtadjust, nbtbase, r)
 {
-	int		i;
-	int		c;
-	int		n;
-	
-	i = 0;
-	c = 0;
-	n = 0;
-	while (map[i] && n < 4)
-	{
-		if (map[i] == '\n')
-			n++;
-		i++;
-		c++;
-	}
-	return (c)
+    map = ft_adjust_map(nbtbase);
+    if (!(map = ft_teri_base_map(nbtbase, r))
+        ft_loop_algo(nbtbase + 1);
+    if (!(map = ft_algo_map))
+        ft_loop_algo(nbtbase + 1, r - 1)
+    return (map);
 }
 
-static char		ft_basetetri(char *map)
+void			ft_algomino(char **tab)
 {
-	int		i;
-	char	basetetri;
+	int	r;
+	int	nbt;
+	char *map;
 	
-	i = 0;
-	while (map[i] == '.' || map[i] == '\n')
+	r = 0;
+	while (tab[i])
 	{
+		nbt++;
 		i++;
 	}
-	bastetri = map[i];
-	return (basetetri);
+	map = ft_memalloc(sizeof(char) * 22000);
+    map = add_tetri_map(tab, map);
+	map = ft_loop_algo;
+	ft_print_map(map);
 }
 
-static			ft_algo_map(char *map, int c, int r, int a)
-{
-	int		i;
-	int		l;
-	
-	i = 0
-	while (l < 4)
-	{
-		if (map[i] == alpha[a] && alpha[a] != basetetri && map[i - r] == '.')
-		{
-			while (map[i] && l < 4) /*notre compteur de lettre d'un tetri qui evite d'aller jusquau bout de map*/
-			{
-				if (map[i] == alpha[a] && map[i - r] == '.')
-				{
-					map[i - r] == alpha[a];
-					l++;
-				}
-				if (map[i] == alpha[a] && map[i - r] != '.' )
-					algo_map(r - 1);
-				i++;
-			}
-			if ((i - r) > c)
-				tetri_base_map(char *map, int nbt, int r - 1, int a)
-		}
-	return (map);
-	}
-}
 
-char			*ft_algomino(char *map, int r/* = 0 et on decremente*/, int nbt)
-{
-	char	alpha[28];
-	char	basetetri;
-	int		i;
-	int		c;
-	int		a;
-	
-	c = ft_size_map(map)
-	basetetri = ft_basetetri(map)
-	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	i = 0;
-	a = 0;
-	while (a <= nbt)
-	{
-		while (map[i] != alpha[a])
-			i++;
-		r = i;
-		map = ft_algo_map()
-		i = 0;
-		r = 0;
-		a++;
-	}
-	return (map);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
