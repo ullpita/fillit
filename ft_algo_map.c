@@ -16,18 +16,11 @@ static int		ft_size_map(char *map)
 {
 	int		i;
 	int		c;
-	int		n;
 	
-	i = 0;
-	c = 0;
-	n = 0;
-	while (map[i] && n < 4)
-	{
-		if (map[i] == '\n')
-			n++;
-		i++;
-		c++;
-	}
+	i = 22000;
+	while (map[i] != '\n')
+		i--;
+	c = 20000 - i;
 	return (c);
 }
 

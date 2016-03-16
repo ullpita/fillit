@@ -18,8 +18,12 @@ char			*ft_tetri_base_map(char *map, int nbt, int r, int a)
 	int		i;
 	int		c;
 
-	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	i = 22000;
+	while (map[i] != '\n')
+		i--;
+	c = 22000 - i;
 	i = 0;
+	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	while (map[i] != alpha[a])
 		i++;
 	r = i;

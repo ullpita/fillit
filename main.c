@@ -55,7 +55,7 @@ int		main(int argc, char **argv)
 		write (1, "error\n", 6);
 		return (0);
 	}
-	tab	= ft_strsplit(str, '\n');
+	tab	= ft_strsplit2(str, '\n');
 	if (!(ft_bigcheck(tab)))
 	{
 		write(1, "error\n", 6);

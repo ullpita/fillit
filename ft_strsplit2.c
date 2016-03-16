@@ -12,8 +12,6 @@
 
 #include "fillit.h"
 
-//#include <stdio.h>
-
 static int		ft_count(char *s, char c)
 {
 	int		count;
@@ -34,10 +32,7 @@ static int		ft_count(char *s, char c)
 		i++;
 	}
 	if ((i + 1) % 21 != 0)
-	{
-		//write (1, "error21\n", 8);
 		return (0);
-	}
 	return (count);
 }
 
@@ -56,14 +51,10 @@ char			**ft_strsplit2(char *s, char c)
 	{
 		while (*s == c && *s)
 			s++;
-		if (!(tab[j] = ft_strsub(s, 0, 20)))
+		if (!(tab[j] = ft_strsub2(s, 0, 20)))
 			return (NULL);
 		s = s + 21;
 		j++;
 	}
-	//printf("%s\n", tab[0]);
-	//printf("%s\n", tab[1]);
-	//printf("%s\n", tab[2]);
-	//printf("%s\n", tab[3]);
 	return (tab);
 }
