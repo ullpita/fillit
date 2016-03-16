@@ -28,7 +28,7 @@ static int		ft_size_map(char *map)
 		i++;
 		c++;
 	}
-	return (c)
+	return (c);
 }
 
 static char		ft_basetetri(char *map)
@@ -41,15 +41,18 @@ static char		ft_basetetri(char *map)
 	{
 		i++;
 	}
-	bastetri = map[i];
+	basetetri = map[i];
 	return (basetetri);
 }
 
-static			ft_place_tetri(char *map, int r, int c, int a)
+static	char		*ft_place_tetri(char *map, int r, int c, int a)
 {
 	int		i;
 	int		l;
-	
+	char	*alpha;
+
+
+	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	i = 0;
 	l = 0;
 	if (map[i] == alpha[a] && map[i - r] == '.')
@@ -58,36 +61,35 @@ static			ft_place_tetri(char *map, int r, int c, int a)
 		{
 			if (map[i] == alpha[a] && map[i - r] == '.')
 			{
-				map[i - r] == alpha[a];
+				map[i - r] = alpha[a];
 				l++;
 			}
 			if (map[i] == alpha[a] && map[i - r] != '.' )
-				ft_place_tetri(r - 1);
+				ft_place_tetri(map, r - 1, c, a);
 			i++;
 		}
 		if ((i - r) > c)
-			tetri_base_map(map, nbt + 1, r - 1/*pas le mm r que algo_map*/, a/*pas le mm a que algo_map*/)
+			return (NULL);//ft_tetri_base_map(map, nbt + 1, r - 1/*pas le mm r que algo_map*/, a/*pas le mm a que algo_map*/);
 	}
 	return (map);
-	}
 }
 
 char			*ft_algo_map(char *map, int r/* = 0 et on decremente*/, int nbt)
 {
-	char	alpha[28];
+	char	*alpha;
 	char	basetetri;
 	int		i;
 	int		c;
 	int		a;
 	
-	c = ft_size_map(map)
-	basetetri = ft_basetetri(map)
-	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	c = ft_size_map(map);
+	basetetri = ft_basetetri(map);
+	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	a = 0;
 	while (a <= nbt)
 	{
 		if (alpha[a] == basetetri)
-			return (ft_algomino(a + 1))
+			a += 1; 
 		i = 0;
 		while (map[i] != alpha[a])
 			i++;

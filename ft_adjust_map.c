@@ -12,6 +12,37 @@
 
 #include "fillit.h"
 
+char		*ft_adjust_map(char *map, int nbt)
+{
+	int	i;
+	int	n;
+	int	mapmin;
+	
+	mapmin = 1;
+	while((mapmin *mapmin) < (nbt * 4))
+		mapmin++;
+	n = mapmin;
+	while (map[i] != '\0' && n >= 0)
+	{
+		if (i == mapmin)
+		{
+			map[mapmin + 1] = '\n';
+			mapmin += mapmin;
+			n--;
+			i += 2;
+		}
+		else
+		{
+			map[i] = '.';
+			i++;
+		}
+	}
+	return (map);
+}
+
+
+
+/*
 static char		*ft_adjust_onetwo(char *map, int nbt)
 {
 	if (nbt = 1)
@@ -104,4 +135,4 @@ char			*ft_adjust_map(char *map, int nbt, int c)
 		return (map);
 	}
 	return (0);
-}
+}*/

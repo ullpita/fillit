@@ -12,35 +12,31 @@
 
 NAME = fillit
 
-HEAD = fillit.h
+O_SRC = main.o ft_add_tetri_map.o ft_adjust_map.o ft_algo_map.o ft_algomino.o \
+			ft_bigcheck.o ft_read.o ft_sharpalpha.o ft_slashcheck.o \
+			ft_strijcheck.o ft_strsplit2.o ft_strsub2.o ft_tetri_base_map.o \
+			ft_tetricheck.o \
 
-FILES = main.c \
-		ft_read.c \
-		ft_bigcheck.c \
-		ft_strijcheck.c \
-		ft_slashcheck.c \
-		ft_tetricheck.c \
-		ft_strsplit.c \
-		ft_strsub.c \
-		ft_sharpalpha.c \
-		ft_main.c \
-		ft_add_tetri_map.c \
-		ft_adjust_map.c \
-		ft_tetri_base_map.c \
-		ft_algomino.c \
+FLAG = -Wextra -Wall -Werror
 
-
-BINARIES = $(FILES:.c=.o)
+INC = ./libft
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wall -Werror -Wextra -o $(NAME) $(FILES) -I $(HEAD)
+%.o: %.c
+	gcc $(FLAG) -c $< -I $(INC)
 
-clean :
-	/bin/rm -f $(BINARIES)
+$(NAME): $(O_SRC)
+	make -C libft
+	gcc $(FLAG) -Llibft -lft -I $(INC) -o $(NAME) $(O_SRC)
 
-fclean : clean
-	/bin/rm -f $(NAME)
+clean:
+	rm -rf $(O_SRC)
 
-re : fclean all
+fclean: clean
+	rm -rf $(NAME)
+	make -C libft fclean
+
+re: clean fclean all
+
+.PHONY: all clean fclean re

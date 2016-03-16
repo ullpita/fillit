@@ -41,7 +41,7 @@ static int		ft_count(char *s, char c)
 	return (count);
 }
 
-char			**ft_strsplit(char *s, char c)
+char			**ft_strsplit2(char *s, char c)
 {
 	char	**tab;
 	int		j;

@@ -12,58 +12,44 @@
 
 #include "fillit.h"
 
-static char				*ft_loop_algo(char *map, nbtadjust, nbtbase, r)
+static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
 {
-    map = ft_adjust_map(nbtbase);
-    if (!(map = ft_teri_base_map(nbtbase, r))
-        ft_loop_algo(nbtbase + 1);
-    if (!(map = ft_algo_map))
-        ft_loop_algo(nbtbase + 1, r - 1)
+	int nbtini;
+	int	a;
+	
+	nbtini = nbt;
+	r = 0;
+	a = 0;
+    map = ft_adjust_map(map, nbt);
+    if (!(map = ft_tetri_base_map(map,nbtini, r, a)))
+			ft_loop_algo(map, nbt + 1, nbtbase, r);
+    if (!(map = ft_algo_map(map, r, nbt)))
+			ft_loop_algo(map, nbt, nbtbase + 1, r - 1);
     return (map);
 }
 
 void			ft_algomino(char **tab)
 {
-	int	r;
+	int	i;
 	int	nbt;
+	int nbtbase;
 	char *map;
+	int	r;
 	
+	nbt = 0;
 	r = 0;
+	i = 0;
 	while (tab[i])
 	{
-		nbt++;
 		i++;
+		nbt++;
 	}
+	nbtbase = nbt;
 	map = ft_memalloc(sizeof(char) * 22000);
-    map = add_tetri_map(tab, map);
-	map = ft_loop_algo;
-	ft_print_map(map);
+    map = ft_add_tetri_map(tab, map);
+	map = ft_loop_algo(map, nbt, nbtbase, r);
+	ft_print_map(map, nbt);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

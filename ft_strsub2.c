@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
-char	*ft_strsub(char *s1, unsigned int start, size_t len)
+char	*ft_strsub2(char *s1, unsigned int start, size_t len)
 {
 	char	*dst;
 	int		i;
