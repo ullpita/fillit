@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/11 13:14:55 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/17 14:06:39 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ void			ft_algomino(char **tab)
 		i++;
 		nbt++;
 	}
-	printf("coucou\n");
 	nbtbase = nbt;
 	map = ft_memalloc(sizeof(char) * 22000);
-    map = ft_add_tetri_map(tab, map);
+	printf("%s", map);
+	printf("coucou\n");
+    map = ft_add_tetri_map(tab, map);	
+	printf("coucou1\n");
 	map = ft_loop_algo(map, nbt, nbtbase, r);
 	ft_print_map(map, nbt);
 }

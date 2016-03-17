@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 17:35:57 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/02/02 15:16:31 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/17 12:31:50 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int		main(int argc, char **argv)
 	int		i;
 
 	i = 0;
-	printf("coucou\n");
 	if (!(str = ft_read_arg(argc, argv, i)))
 	{
 		write (1, "error\n", 6);

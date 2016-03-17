@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/11 13:52:49 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/17 12:18:49 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char		*ft_adjust_map(char *map, int nbt)
 	int	mapmin;
 	
 	mapmin = 1;
+	i = 0;
 	while((mapmin *mapmin) < (nbt * 4))
 		mapmin++;
 	n = mapmin;

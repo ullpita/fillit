@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 16:56:39 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/02/02 14:56:41 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/17 12:28:26 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 
 
 
-
-void    *ft_memalloc(size_t size);
-void    ft_putchar(char c);
 char	*ft_read_arg(int argc, char **argv, int i);
 int		ft_bigcheck(char **tab);
 int		ft_strijcheck(char *str);
