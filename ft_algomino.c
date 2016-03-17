@@ -6,13 +6,13 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/17 17:36:03 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/03/17 20:32:24 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/*static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
+static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
 {
 	int nbtini;
 	int	a;
@@ -26,7 +26,7 @@
     if (!(map = ft_algo_map(map, r, nbt)))
 			ft_loop_algo(map, nbt, nbtbase + 1, r - 1);
     return (map);
-}*/
+}
 
 #include <stdio.h>
 
@@ -46,16 +46,16 @@ void			ft_algomino(char **tab)
 		i++;
 		nbt++;
 	}
-//	printf("%s", tab[r]);
 	nbtbase = nbt;
-	map = ft_memalloc(sizeof(char) * 22000);
+	map = ft_memalloc(sizeof(char) * 8000);
 	while (map[r])
 		r++;
 	printf("%d\n", r);
     map = ft_add_tetri_map(tab, map);
-	printf("%s", map);
-//	map = ft_loop_algo(map, nbt, nbtbase, r);
-//	ft_print_map(map, nbt);
+	map = ft_loop_algo(map, nbt, nbtbase, r);
+	//printf("%s", map);
+	printf("%d\n", nbt);
+	ft_print_map(map, nbt);
 }
 
 

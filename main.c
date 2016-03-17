@@ -6,20 +6,26 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 17:35:57 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/03/17 15:53:27 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/03/17 20:32:21 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-void    ft_print_map(char *map, int nb)
+void    ft_print_map(char *map, int nbt)
 {
     int i;
-    
+	int	mapmin;
+
+	mapmin = 0;
     i = 0;
-    while (i != nb)
+	while ((mapmin * mapmin) < (nbt * 4))
+		mapmin++;
+    while (map[i] != '\0' && mapmin > 0)
     {
+		if (map[i] == '\n')
+			mapmin--;
         ft_putchar(map[i]);
         i++;
     }
