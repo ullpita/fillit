@@ -15,7 +15,7 @@ NAME = fillit
 O_SRC = main.o ft_add_tetri_map.o ft_adjust_map.o ft_algo_map.o ft_algomino.o \
 			ft_bigcheck.o ft_read.o ft_sharpalpha.o ft_slashcheck.o \
 			ft_strijcheck.o ft_strsplit2.o ft_strsub2.o ft_tetri_base_map.o \
-			ft_tetricheck.o \
+			ft_tetricheck.o ft_memalloc.o ft_putchar.o ft_bzero.o\
 
 FLAG = -Wextra -Wall -Werror
 

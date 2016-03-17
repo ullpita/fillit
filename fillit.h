@@ -17,6 +17,12 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+
+
+
+
+void    *ft_memalloc(size_t size);
+void    ft_putchar(char c);
 char	*ft_read_arg(int argc, char **argv, int i);
 int		ft_bigcheck(char **tab);
 int		ft_strijcheck(char *str);

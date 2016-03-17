@@ -50,6 +50,7 @@ int		main(int argc, char **argv)
 	int		i;
 
 	i = 0;
+	printf("coucou\n");
 	if (!(str = ft_read_arg(argc, argv, i)))
 	{
 		write (1, "error\n", 6);

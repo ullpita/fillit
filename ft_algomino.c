@@ -28,6 +28,8 @@ static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
     return (map);
 }
 
+#include <stdio.h>
+
 void			ft_algomino(char **tab)
 {
 	int	i;
@@ -44,6 +46,7 @@ void			ft_algomino(char **tab)
 		i++;
 		nbt++;
 	}
+	printf("coucou\n");
 	nbtbase = nbt;
 	map = ft_memalloc(sizeof(char) * 22000);
     map = ft_add_tetri_map(tab, map);
