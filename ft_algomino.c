@@ -6,12 +6,12 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/18 12:50:06 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/18 18:49:03 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
+/*
 static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
 {
 	int nbtini;
@@ -27,7 +27,7 @@ static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
 			ft_loop_algo(map, nbt, nbtbase + 1, r - 1);
     return (map);
 }
-
+*/
 #include <stdio.h>
 
 void			ft_algomino(char **tab)
@@ -48,7 +48,7 @@ void			ft_algomino(char **tab)
 	map = ft_adjust_map(map, nbt);
 	//printf("%s", map);
 	r = 0;
-	map = ft_loop_algo(map, nbt, nbtbase, r);
+//	map = ft_loop_algo(map, nbt, nbtbase, r);
 	printf("%s", map);
 	//printf("%d\n", nbt);
 	//ft_print_map(map, nbt);

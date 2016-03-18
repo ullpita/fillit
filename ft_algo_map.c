@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/11 13:14:55 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/18 15:05:18 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char			*ft_algo_map(char *map, int r/* = 0 et on decremente*/, int nbt)
 	basetetri = ft_basetetri(map);
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	a = 0;
-	while (a <= nbt)
+	while (a < nbt)
 	{
 		if (alpha[a] == basetetri)
 			a += 1; 
