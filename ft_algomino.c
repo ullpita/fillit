@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/17 20:32:24 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/03/18 12:50:06 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,26 @@ static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
 
 void			ft_algomino(char **tab)
 {
-	int	i;
 	int	nbt;
 	int nbtbase;
 	char *map;
 	int	r;
 	
 	nbt = 0;
-	r = 0;
-	i = 0;
-	while (tab[i])
-	{
-		i++;
+	while (tab[nbt])
 		nbt++;
-	}
 	nbtbase = nbt;
 	map = ft_memalloc(sizeof(char) * 8000);
-	while (map[r])
-		r++;
-	printf("%d\n", r);
+	//printf("%s", map);	
     map = ft_add_tetri_map(tab, map);
-	map = ft_loop_algo(map, nbt, nbtbase, r);
 	//printf("%s", map);
-	printf("%d\n", nbt);
-	ft_print_map(map, nbt);
+	map = ft_adjust_map(map, nbt);
+	//printf("%s", map);
+	r = 0;
+	map = ft_loop_algo(map, nbt, nbtbase, r);
+	printf("%s", map);
+	//printf("%d\n", nbt);
+	//ft_print_map(map, nbt);
 }
 
 
