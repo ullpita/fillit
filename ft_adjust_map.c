@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/18 21:01:06 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/19 21:54:35 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,42 @@
 
 #include <stdio.h>
 
-static char		*ft_adjust_tetri(char *map, int maptmp,int  nbt)
+static char		*ft_adjust_tetri(char *map/*, int maptmp*/, int  nbt)
 {
+	int		i;
+	int		l;
+	
+	i = 8000;
+	l = 4;
+	while (i >= 800)
+	{
+		if (map[i] != '.' && map[i - 1] != '.')
+		{
+			map[i + (l * 3 * nbt)] = map[i];
+			map[i + 1 + (l * 3 * nbt)] = map[i];
+			map[i] = '.';
+			map[i - 1] = '.';
+			i -= 2;
+			l -= 2;
+		}
+		if (map[i] != '.')
+		{
+			map[i + (l * 3 * nbt)] = map[i];
+			map[i] = '.';
+			i--;
+			l--; 
+		}
+		if (l == 0)
+		{
+			l = 4;
+			nbt--;
+		}
+		else
+			i--;
+	}
+	return (map);
+}
+/*{
 	int		i;
 	int		c;
 	char	*alpha;
@@ -71,7 +105,7 @@ static char		*ft_adjust_tetri(char *map, int maptmp,int  nbt)
 		nbt--;
 	}
 	return (map);
-}
+}*/
 
 char			*ft_adjust_map(char *map, int nbt)
 {
@@ -101,6 +135,7 @@ char			*ft_adjust_map(char *map, int nbt)
 			i++;
 		}
 	}
-	map = ft_adjust_tetri(map, maptmp, nbt);
+	i = 100;;
+	map = ft_adjust_tetri(map/*maptmp*/, nbt);
 	return (map);
 }
