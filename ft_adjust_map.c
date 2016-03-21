@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/19 21:54:35 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/21 10:49:20 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,22 @@ static char		*ft_adjust_tetri(char *map/*, int maptmp*/, int  nbt)
 			map[i - 1] = '.';
 			i -= 2;
 			l -= 2;
+			printf("two%s\n\n", map);
 		}
-		if (map[i] != '.')
+		if (map[i] != '.' && map[i - 1] == '.')
 		{
 			map[i + (l * 3 * nbt)] = map[i];
 			map[i] = '.';
 			i--;
-			l--; 
+			l--;
+			printf("one%s\n\n", map);
 		}
-		if (l == 0)
-		{
-			l = 4;
-			nbt--;
-		}
+	//	if (l == 0)
+	//	{
+	//		l = 4;
+	//		nbt--;
+	//		a++;
+	//	}
 		else
 			i--;
 	}
