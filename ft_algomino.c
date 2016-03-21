@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 10:32:49 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/21 11:11:24 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void			ft_algomino(char **tab)
 	map = ft_memalloc(sizeof(char) * 8000);
 	//printf("%s", map);	
     map = ft_add_tetri_map(tab, map);
-	//printf("%s", map);
-	//printf("\n\n");
+	printf("%s", map);
+	printf("\n\n");
 	map = ft_adjust_map(map, nbt);
 	//printf("%s", map);
 	r = 0;

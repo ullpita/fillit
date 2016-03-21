@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 10:49:20 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/21 11:36:55 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,54 @@ static char		*ft_adjust_tetri(char *map/*, int maptmp*/, int  nbt)
 {
 	int		i;
 	int		l;
+	int		a;
+	char	*alpha;
 	
+	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	a = nbt - 1;
 	i = 8000;
 	l = 4;
 	while (i >= 800)
 	{
-		if (map[i] != '.' && map[i - 1] != '.')
+		if (map[i] != '.' && map[i - 1] != '.' && map[i - 2] != '.')
 		{
-			map[i + (l * 3 * nbt)] = map[i];
-			map[i + 1 + (l * 3 * nbt)] = map[i];
+			l -= 3;
+			map[i + (l * 3 * nbt)] = alpha[a];
+			map[i - 1 + (l * 3 * nbt)] = alpha[a];
+			map[i - 2 + (l * 3 * nbt)] = alpha[a];
+			map[i - 3 + (l * 3 * nbt)] = alpha[a];
+			map[i] = '.';
+			map[i - 1] = '.';
+			map[i - 2] = '.';
+			map[i - 3] = '.';
+			i -= 4;
+			l--;
+		}
+		if (map[i] != '.' && map[i - 1] != '.' && map[i - 2] == '.')
+		{
+			l--;
+			map[i + (l * 3 * nbt)] = alpha[a];
+			map[i - 1 + (l * 3 * nbt)] = alpha[a];
 			map[i] = '.';
 			map[i - 1] = '.';
 			i -= 2;
-			l -= 2;
+			l--;
 			printf("two%s\n\n", map);
 		}
-		if (map[i] != '.' && map[i - 1] == '.')
+		if (map[i] != '.' && map[i + 1] == '.')
 		{
-			map[i + (l * 3 * nbt)] = map[i];
+			map[i + (l * 3 * nbt)] = alpha[a];
 			map[i] = '.';
 			i--;
 			l--;
 			printf("one%s\n\n", map);
 		}
-	//	if (l == 0)
-	//	{
-	//		l = 4;
-	//		nbt--;
-	//		a++;
-	//	}
+		if (l == 0)
+		{
+			l = 4;
+			nbt--;
+			a--;
+		}
 		else
 			i--;
 	}
