@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 16:24:46 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/21 17:33:07 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,16 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 	int		a;
 	char	*alpha;
 	
+	i = 8000;
+	while (i > 7980)
+	{
+		map[i] = '.';
+		i--;
+	}
 	map[8000] = '|';
 	map[8000 - maptmp] = '|';
 	i = 7999;
-	c = -4;
+	c = - 8;
 	while (map[i] == '.')
 	{
 		i--;
@@ -38,7 +44,6 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 	a = nbt - 1;
 	l = 4;
 	nbt = 1;
-	printf("\n%d\n", maptmp);
 	if (c > 0)
 	{
 		while (i >= 800)
@@ -118,7 +123,6 @@ char			*ft_adjust_map(char *map, int nbt)
 	i = 0 ;
 	while ((mapmin * mapmin) < (nbt * 4))
 		mapmin++;
-	printf("%d\n\n", mapmin);
 	n = mapmin;
 	maptmp = mapmin + 1;
 	while (map[i] != '\0' && n > 0)
