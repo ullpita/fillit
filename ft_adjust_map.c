@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 11:36:55 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/21 12:40:26 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,39 @@ static char		*ft_adjust_tetri(char *map/*, int maptmp*/, int  nbt)
 	l = 4;
 	while (i >= 800)
 	{
-		if (map[i] != '.' && map[i - 1] != '.' && map[i - 2] != '.')
+		if (map[i] != '.' && map[i - 1] != '.' && map[i - 2] != '.' && map[i - 3] != '.')
 		{
-			l -= 3;
-			map[i + (l * 3 * nbt)] = alpha[a];
-			map[i - 1 + (l * 3 * nbt)] = alpha[a];
-			map[i - 2 + (l * 3 * nbt)] = alpha[a];
-			map[i - 3 + (l * 3 * nbt)] = alpha[a];
+			l--;
+			map[i + (l * 3 * nbt + 1)] = alpha[a];
+			printf("1%s\n", map);
+			map[i - 1 + (l * 3 * nbt + 1)] = alpha[a];
+			printf("2%s\n", map);
+			map[i - 2 + (l * 3 * nbt + 1)] = alpha[a];
+			printf("3%s\n", map);
+			map[i - 3 + (l * 3 * nbt + 1)] = alpha[a];
 			map[i] = '.';
+			printf("4%s\n", map);
 			map[i - 1] = '.';
 			map[i - 2] = '.';
 			map[i - 3] = '.';
 			i -= 4;
+			l -= 3;
+			printf("four%s\n", map);
+		}
+		if (map[i] != '.' && map[i - 1] != '.' && map[i - 2] != '.' && map[i - 3] == '.')
+		{
 			l--;
+			map[i + (l * 3 * nbt + 1)] = alpha[a];
+			printf("1%s\n", map);
+			map[i - 1 + (l * 3 * nbt + 1)] = alpha[a];
+			printf("2%s\n", map);
+			map[i - 2 + (l * 3 * nbt + 1)] = alpha[a];
+			printf("2%s\n", map);
+			map[i] = '.';
+			map[i - 1] = '.';
+			map[i - 2] = '.';
+			i-= 3;
+			l -= 2;
 		}
 		if (map[i] != '.' && map[i - 1] != '.' && map[i - 2] == '.')
 		{
