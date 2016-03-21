@@ -6,21 +6,23 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/18 15:05:18 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/21 19:10:18 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+#include <stdio.h>
 
 static int		ft_size_map(char *map)
 {
 	int		i;
 	int		c;
 	
-	i = 22000;
+	i = 8000;
 	while (map[i] != '\n')
 		i--;
-	c = 20000 - i;
+	c = 8000 - i;
 	return (c);
 }
 
@@ -46,8 +48,10 @@ static	char		*ft_place_tetri(char *map, int r, int c, int a)
 
 
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	i = 0;
+	i = 100;
 	l = 0;
+	while (map[i] != alpha[a])
+		i++;
 	if (map[i] == alpha[a] && map[i - r] == '.')
 	{
 		while (map[i] && l < 4) /*notre compteur de lettre d'un tetri qui evite d'aller jusquau bout de map*/
@@ -82,8 +86,8 @@ char			*ft_algo_map(char *map, int r/* = 0 et on decremente*/, int nbt)
 	while (a < nbt)
 	{
 		if (alpha[a] == basetetri)
-			a += 1; 
-		i = 0;
+			a++; 
+		i = 100;
 		while (map[i] != alpha[a])
 			i++;
 		r = i;
