@@ -24,8 +24,10 @@ static int		ft_get_basetetri(char *map)
 
 static char				*ft_loop_algo(char *map, int size, int nbt, int nbtbase, int r)
 {
+	printf("%d -- %d\n", size, nbt);
+	// Quand on passe à une size supérieure, ft_adjust_map supprime le 'A' ce qui fait un segfault dans ft_tetri_base_map
 	map = ft_adjust_map(map, size);
-	printf("%d | %d\n", r, nbtbase);
+	printf("%s\n", map);
 	if ((r = ft_tetri_base_map(map, nbt, r, nbtbase)) == -1)
 		return ft_loop_algo(map, size + 1, nbt, 0, 0);
 	nbtbase = ft_get_basetetri(map);
@@ -33,7 +35,7 @@ static char				*ft_loop_algo(char *map, int size, int nbt, int nbtbase, int r)
 	{
 		ft_print_map(map, nbt);
 		printf("\n");
-		// usleep(1000000);
+		usleep(10000);
 		return ft_loop_algo(map, size, nbt, nbtbase, r + 1);
 	}
     return (map);

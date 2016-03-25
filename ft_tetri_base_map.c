@@ -42,28 +42,22 @@ int				ft_tetri_base_map(char *map, int nbt, int r, int a)
 	while (map[i] != alpha[a])
 		i++;
 	completed = 0;
-	printf("\n1\n");
 	while (completed < 4)
 	{
-		printf("2\n");
 		if (r >= map_size)
 		{
-			printf("3\n");
 			ft_rm_tetri(map, r, alpha[a]);
-			return (a <= nbt ? ft_tetri_base_map(map, nbt, 0, ++a) : -1);
+			return (a + 1 < nbt ? ft_tetri_base_map(map, nbt, 0, ++a) : -1);
 		}
 		else if (map[i] == alpha[a])
 		{
-			printf("4\n");
 			if (map[r] == '.')
 			{
-				printf("5\n");
 				map[r] = map[i];
 				completed++;
 			}
 			else
 			{
-				printf("6\n");
 				ft_rm_tetri(map, r, alpha[a]);
 				return ft_tetri_base_map(map, nbt, o_r + 1, a);
 			}
