@@ -17,7 +17,7 @@ O_SRC = main.o ft_add_tetri_map.o ft_adjust_map.o ft_algo_map.o ft_algomino.o \
 			ft_strijcheck.o ft_strsplit2.o ft_strsub2.o ft_tetri_base_map.o \
 			ft_tetricheck.o \
 
-FLAG = -Wextra -Wall -Werror
+FLAG = -Wextra -Wall #-Werror
 
 INC = libft/libft.h
 

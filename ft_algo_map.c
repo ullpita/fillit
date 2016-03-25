@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 19:10:18 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/25 15:00:16 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 static int		ft_size_map(char *map)
 {
 	int		i;
-	int		c;
 	
 	i = 8000;
 	while (map[i] != '\n')
 		i--;
-	c = 8000 - i;
-	return (c);
+	return (i);
 }
 
 static char		ft_basetetri(char *map)
@@ -46,7 +44,6 @@ static	char		*ft_place_tetri(char *map, int r, int c, int a)
 	int		l;
 	char	*alpha;
 
-
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	i = 100;
 	l = 0;
@@ -56,18 +53,37 @@ static	char		*ft_place_tetri(char *map, int r, int c, int a)
 	{
 		while (map[i] && l < 4) /*notre compteur de lettre d'un tetri qui evite d'aller jusquau bout de map*/
 		{
+			// if (alpha[a] == 'D') {
+			// 	sleep(1);
+			// 	printf("\n");
+
+			// 	ft_print_map(map, 4);
+			// }
 			if (map[i] == alpha[a] && map[i - r] == '.')
 			{
 				map[i - r] = alpha[a];
 				l++;
 			}
-			if (map[i] == alpha[a] && map[i - r] != '.' )
-				ft_place_tetri(map, r - 1, c, a);
+			else if (map[i] == alpha[a] && map[i - r] != '.')
+			{
+				int	x = 0;
+				while (x < i - r)
+				{
+					if (map[x] == alpha[a])
+					{
+						map[x] = '.';
+					}
+					x++;
+				}
+				return ft_place_tetri(map, r - 1, c, a);
+			}
 			i++;
 		}
 		if ((i - r) > c)
 			return (NULL);//ft_tetri_base_map(map, nbt + 1, r - 1/*pas le mm r que algo_map*/, a/*pas le mm a que algo_map*/);
 	}
+	if (map[i] == alpha[a] && map[i - r] != '.')
+		return ft_place_tetri(map, r - 1, c, a);
 	return (map);
 }
 
@@ -86,27 +102,19 @@ char			*ft_algo_map(char *map, int r/* = 0 et on decremente*/, int nbt)
 	while (a < nbt)
 	{
 		if (alpha[a] == basetetri)
-			a++; 
+		{
+			a++;
+		}	
 		i = 100;
 		while (map[i] != alpha[a])
+		{
 			i++;
+		}
 		r = i;
 		map = ft_place_tetri(map, r, c, a);
 		r = 0;
 		a++;
 	}
+	printf("\n%s\n", map);
 	return (map);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
