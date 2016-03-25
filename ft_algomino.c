@@ -20,10 +20,12 @@ static char				*ft_loop_algo(char *map, int nbt, int nbtbase, int r)
 	nbtini = nbt;
 	a = 0;
 	map = ft_adjust_map(map, nbt);
-	if (!(map = ft_tetri_base_map(map, nbtini, r, a)))
+	printf("\n%d\n", nbt);
+	ft_print_map(map, nbt);
+	if (!ft_tetri_base_map(map, nbtini, r, a))
 		return ft_loop_algo(map, nbt + 1, nbtbase, r);
 	if (!(ft_algo_map(map, r, nbt)))
-		return ft_loop_algo(map, nbt, nbtbase + 1, r - 1);
+		return ft_loop_algo(map, nbt, nbtbase, r + 1);
     return (map);
 }
 
