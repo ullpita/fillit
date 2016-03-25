@@ -29,10 +29,10 @@ char	**ft_strsplit2(char *s, char c);
 char	*ft_strsub2(char *s, unsigned int start, size_t size);
 char    *ft_add_tetri_map(char **tab, char *map);
 char    *ft_adjust_map(char *map, int nbt);
-char    *ft_algo_map(char *map, int r, int nbt);
+char    *ft_algo_map(char *map, int nbt);
 void    ft_algomino(char **tab);
 char    **ft_alphamino(char **tab);
-char    *ft_tetri_base_map(char *map, int nbt, int r, int a);
+int		ft_tetri_base_map(char *map, int nbt, int r, int a);
 void    ft_print_map(char *map, int nbt);
 
 

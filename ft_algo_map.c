@@ -38,62 +38,58 @@ static char		ft_basetetri(char *map)
 	return (basetetri);
 }
 
-static char		*ft_rm_tetri(char *map, int r, char a)
+static void		ft_rm_tetri(char *map, int r, char a)
 {
 	int	x = 0;
 	while (x < r)
 	{
 		if (map[x] == a)
-		{
 			map[x] = '.';
-		}
 		x++;
 	}
-	return map;
 }
 
-static char		*ft_place_tetri(char *map, int r, int c, int a)
+static char		*ft_place_tetri(char *map, int r, int map_size, int a)
 {
-	int		i;
-	int		l;
 	char	*alpha;
+	int		i;
+	int		completed;
+	int		o_r;
 
+	o_r = r;
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	i = 100;
-	l = 0;
+	i = 0;
 	while (map[i] != alpha[a])
 		i++;
-	if (map[i] == alpha[a] && map[r] == '.')
+	completed = 0;
+	while (completed < 4)
 	{
-		while (map[i] && l < 4) /*notre compteur de lettre d'un tetri qui evite d'aller jusquau bout de map*/
+		// usleep(250000);
+		if (r >= map_size)
 		{
-			// usleep(250000);
-			// printf("%s\n", map);
-			if (map[i] == alpha[a] && map[r] == '.')
+			ft_rm_tetri(map, r, alpha[a]);
+			return (NULL);
+		}
+		else if (map[i] == alpha[a])
+		{
+			if (map[r] == '.')
 			{
-				map[r] = alpha[a];
-				l++;
+				map[r] = map[i];
+				completed++;
 			}
-			else if (map[i] == alpha[a] && map[r] != '.')
+			else
 			{
 				ft_rm_tetri(map, r, alpha[a]);
-				return ft_place_tetri(map, r + 1, c, a);
+				return ft_place_tetri(map, o_r + 1, map_size, a);
 			}
-			i++;
 		}
-		if ((r) > c) {
-			int x = 0;
-			while (x < 800)
-				map[x++] = '.';
-			return (NULL);//ft_tetri_base_map(map, nbt + 1, r + 1/*pas le mm r que algo_map*/, a/*pas le mm a que algo_map*/);
-		}
+		r++;
+		i++;
 	}
-	if (map[i] == alpha[a] && map[r] != '.')
-		return ft_place_tetri(map, r + 1, c, a);
 	return (map);
 }
 
-char			*ft_algo_map(char *map, int r/* = 0 et on decremente*/, int nbt)
+char			*ft_algo_map(char *map, int nbt)
 {
 	char	*alpha;
 	char	basetetri;
@@ -108,15 +104,12 @@ char			*ft_algo_map(char *map, int r/* = 0 et on decremente*/, int nbt)
 	while (a < nbt)
 	{
 		if (alpha[a] == basetetri)
-		{
 			a++;
-		}
 		i = 100;
 		while (map[i] != alpha[a])
 			i++;
-		if (!ft_place_tetri(map, r, c, a))
+		if (!ft_place_tetri(map, 0, c, a))
 			return (NULL);
-		r = 0;
 		a++;
 	}
 	return (map);

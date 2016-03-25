@@ -25,7 +25,7 @@ static void		ft_rm_tetri(char *map, int r, char a)
 	}
 }
 
-char			*ft_tetri_base_map(char *map, int nbt, int r, int a)
+int				ft_tetri_base_map(char *map, int nbt, int r, int a)
 {
 	char	*alpha;
 	int		i;
@@ -42,71 +42,34 @@ char			*ft_tetri_base_map(char *map, int nbt, int r, int a)
 	while (map[i] != alpha[a])
 		i++;
 	completed = 0;
+	printf("\n1\n");
 	while (completed < 4)
 	{
+		printf("2\n");
 		if (r >= map_size)
 		{
+			printf("3\n");
 			ft_rm_tetri(map, r, alpha[a]);
-			return (a <= nbt ? ft_tetri_base_map(map, nbt, o_r, a++) : NULL);
+			return (a <= nbt ? ft_tetri_base_map(map, nbt, 0, ++a) : -1);
 		}
 		else if (map[i] == alpha[a])
 		{
+			printf("4\n");
 			if (map[r] == '.')
 			{
+				printf("5\n");
 				map[r] = map[i];
 				completed++;
 			}
-			else {
+			else
+			{
+				printf("6\n");
 				ft_rm_tetri(map, r, alpha[a]);
-				ft_tetri_base_map(map, nbt, o_r + 1, a);
+				return ft_tetri_base_map(map, nbt, o_r + 1, a);
 			}
-			r++;
 		}
+		r++;
+		i++;
 	}
-	printf("\n%s\n", map);
-	return (map);
+	return o_r;
 }
-
-// char			*ft_tetri_base_map(char *map, int nbt, int r, int a)
-// {
-// 	char	*alpha;
-// 	int		i;
-// 	int		c;
-// 	int		l;
-// 	int		o_r;
-
-// 	o_r = r;
-// 	i = 8000;
-// 	while (map[i] != '\n')
-// 		i--;
-// 	c = i;
-// 	i = 0;
-// 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// 	while (map[i] != alpha[a])
-// 		i++;
-// 	l = 0;
-// 	while (map[i] && l < 4)
-// 	{
-// 		if (r >= c)
-// 		{
-// 			if (a <= nbt)
-// 			{
-// 				ft_rm_tetri(map, r, alpha[a]);
-// 				return ft_tetri_base_map(map, nbt, o_r, a + 1);
-// 			}
-// 			else
-// 			{
-// 				return (NULL);//ft_adjust_map(nbt + 1);
-// 			}
-// 		}
-// 		else if (map[i] == alpha[a] && map[r] == '.')
-// 		{
-// 			map[r++] = alpha[a];
-// 			l++;
-// 		}
-// 		else
-// 			ft_rm_tetri(map, r, alpha[a]);
-// 		i++;
-// 	}
-// 	return (map);
-// }
