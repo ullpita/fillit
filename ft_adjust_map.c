@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 17:33:07 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/25 13:05:36 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 	map[8000] = '|';
 	map[8000 - maptmp] = '|';
 	i = 7999;
-	c = - 8;
+	c = - 4;
 	while (map[i] == '.')
 	{
 		i--;
 		c++;
 	}
-	printf("\n%d\n", c);
 	i = 7000;
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	a = nbt - 1;
@@ -86,8 +85,8 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 			if (map[i] != '.' && map[i - 1] != '.' && map[i - 2] == '.' && l > 2)
 			{
 				l--;
-				map[i + (l * c + 1)] = alpha[a];
-				map[i - 1 + (l * c + 1)] = alpha[a];
+				map[i + (l * c)] = alpha[a];
+				map[i - 1 + (l * c)] = alpha[a];
 				map[i] = '.';
 				map[i - 1] = '.';
 				i -= 2;
@@ -112,6 +111,43 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 	return (map);
 }
 
+/*
+	while (i > 200 && l > 0 && a >= 0)
+	{
+		if (map[i] == alpha[a] && map[i - 1] == alpha[a])
+		{
+			l--;
+			i--;
+			printf("%s\n", map);
+		}
+		if (map[i] == alpha[a] && map[i - 1] == '.' && map[i + 1] == alpha[a])
+		{
+			map[i + l * c] = alpha[a];
+			map[i + 1 + l * c] = alpha[a];
+			map[i] = '.';
+			map[i + 1] = '.';
+			l--;
+			i--;
+			printf("%s\n", map);
+		}
+		if (map[i] == alpha[a] && map[i - 1] == '.' && map[i + 1] == '.')
+		{
+			map[i + l * c] = alpha[a];
+			map[i] = '.';
+			l--;
+			printf("%s\n", map);
+		}
+		if (l == 0)
+		{
+			l = 4;
+			a++;
+		}
+		else
+			i--;
+	}
+	return (map);
+}
+*/
 char			*ft_adjust_map(char *map, int nbt)
 {
 	int	i;
