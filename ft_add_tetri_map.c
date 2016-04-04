@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 14:27:42 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 14:30:30 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/03/29 13:17:41 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char			*ft_add_tetri_map(char **tab, char *map)
 	int		m;
 
 	i = 0;
-	m = 1009;
+	m = 3000;
 	while (tab[i])
 	{
 		j = 0;
@@ -61,7 +61,7 @@ char			*ft_add_tetri_map(char **tab, char *map)
 			j++;
 			m++;
 		}
-		j = 80;
+		j = 150;
 		while (j > 0)
 		{
 			m++;

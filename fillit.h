@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 16:56:39 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/03/17 12:28:26 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/04/04 16:25:43 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 
 
+
+char	*ft_adjust_tetri(char *map, int size, int nbt);
 
 char	*ft_read_arg(int argc, char **argv, int i);
 int		ft_bigcheck(char **tab);

@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/25 13:05:36 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/04/04 17:35:12 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 #include <stdio.h>
 
-
-static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
+char		*ft_adjust_tetri(char *map, int size, int  nbt)
 {
 	int		i;
 	int		c;
 	int		l;
 	int		a;
 	char	*alpha;
-	
+	int		mapmin;
+
+	mapmin = 1;
+	while ((mapmin * mapmin) < (size * 4))
+		mapmin++;
+	mapmin += 1;
 	i = 8000;
 	while (i > 7980)
 	{
@@ -30,9 +34,9 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 		i--;
 	}
 	map[8000] = '|';
-	map[8000 - maptmp] = '|';
+	map[8000 - mapmin] = '|';
 	i = 7999;
-	c = - 4;
+	c = - (mapmin - 3);
 	while (map[i] == '.')
 	{
 		i--;
@@ -42,7 +46,7 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	a = nbt - 1;
 	l = 4;
-	nbt = 1;
+	printf("\n---%d---\n", c);
 	if (c > 0)
 	{
 		while (i >= 800)
@@ -106,48 +110,13 @@ static char		*ft_adjust_tetri(char *map, int maptmp, int  nbt)
 			}
 			else
 				i--;
+
+		//	printf("%d", a);
 		}
 	}
 	return (map);
 }
 
-/*
-	while (i > 200 && l > 0 && a >= 0)
-	{
-		if (map[i] == alpha[a] && map[i - 1] == alpha[a])
-		{
-			l--;
-			i--;
-			printf("%s\n", map);
-		}
-		if (map[i] == alpha[a] && map[i - 1] == '.' && map[i + 1] == alpha[a])
-		{
-			map[i + l * c] = alpha[a];
-			map[i + 1 + l * c] = alpha[a];
-			map[i] = '.';
-			map[i + 1] = '.';
-			l--;
-			i--;
-			printf("%s\n", map);
-		}
-		if (map[i] == alpha[a] && map[i - 1] == '.' && map[i + 1] == '.')
-		{
-			map[i + l * c] = alpha[a];
-			map[i] = '.';
-			l--;
-			printf("%s\n", map);
-		}
-		if (l == 0)
-		{
-			l = 4;
-			a++;
-		}
-		else
-			i--;
-	}
-	return (map);
-}
-*/
 char			*ft_adjust_map(char *map, int nbt)
 {
 	int	i;
@@ -176,7 +145,6 @@ char			*ft_adjust_map(char *map, int nbt)
 			i++;
 		}
 	}
-	i = 100;;
-	map = ft_adjust_tetri(map, maptmp, nbt);
+//	map = ft_adjust_tetri(map, maptmp, nbt);
 	return (map);
 }
