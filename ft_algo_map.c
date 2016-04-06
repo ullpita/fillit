@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/04/06 15:50:44 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/04/06 17:16:50 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ char			*ft_algo_map(char *map, int nbt)
 		if (!ft_place_tetri(map, 0, c, a))
 			return (NULL);
 		a++;
+//		sleep(3);
 //		printf("\n\n%s\n\n", map);
 //		usleep(500000);
 	}

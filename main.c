@@ -6,7 +6,7 @@
 /*   By: mbompoil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 17:35:57 by mbompoil          #+#    #+#             */
-/*   Updated: 2016/03/17 20:32:21 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/04/06 17:28:22 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,17 @@
 void    ft_print_map(char *map, int nbt)
 {
     int i;
-	int	mapmin;
 
-	mapmin = 0;
-    i = 0;
-	while ((mapmin * mapmin) < (nbt * 4))
-		mapmin++;
-    while (map[i] != '\0' && mapmin > 0)
-    {
-		if (map[i] == '\n')
-			mapmin--;
-        ft_putchar(map[i]);
-        i++;
-    }
+    i = 800;
+
+	nbt = 0;
+   	while (map[i] != '\n')
+		i--;
+    while(nbt <= i)    
+	{
+		ft_putchar(map[nbt]);
+		nbt++;
+	}
 }
 
 /*void	ft_start_algo(char **tab)
