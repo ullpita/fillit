@@ -6,11 +6,12 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:15:35 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/21 18:13:48 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/04/06 15:49:53 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 static void		ft_rm_tetri(char *map, int r, char a)
 {
@@ -33,6 +34,8 @@ int				ft_tetri_base_map(char *map, int nbt, int r, int a)
 	int		completed;
 	int		o_r;
 
+//	usleep(250000);
+//	printf("\n%d\n", a);
 	o_r = r;
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	map_size = 8000;
@@ -65,5 +68,7 @@ int				ft_tetri_base_map(char *map, int nbt, int r, int a)
 		r++;
 		i++;
 	}
+//	printf("COOOOOUUCCCCCOOOOOUU");
+//	printf("%s\n\n", map);
 	return o_r;
 }

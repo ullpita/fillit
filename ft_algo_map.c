@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 18:11:14 by upierre-          #+#    #+#             */
-/*   Updated: 2016/03/25 15:00:16 by upierre-         ###   ########.fr       */
+/*   Updated: 2016/04/06 15:50:44 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ static char		ft_basetetri(char *map)
 
 static void		ft_rm_tetri(char *map, int r, char a)
 {
-	int	x = 0;
-	while (x < r)
+	int	i = 0;
+
+	while (i < r)
 	{
-		if (map[x] == a)
-			map[x] = '.';
-		x++;
+		if (map[i] == a)
+			map[i] = '.';
+		i++;
 	}
 }
 
@@ -111,6 +112,8 @@ char			*ft_algo_map(char *map, int nbt)
 		if (!ft_place_tetri(map, 0, c, a))
 			return (NULL);
 		a++;
+//		printf("\n\n%s\n\n", map);
+//		usleep(500000);
 	}
 	return (map);
 }

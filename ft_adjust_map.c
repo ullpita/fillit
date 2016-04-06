@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 13:10:48 by upierre-          #+#    #+#             */
-/*   Updated: 2016/04/04 17:35:12 by mbompoil         ###   ########.fr       */
+/*   Updated: 2016/04/06 13:39:55 by mbompoil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-char		*ft_adjust_tetri(char *map, int size, int  nbt)
+char		*ft_adjust_tetri(char *map, int  size, int nbt)
 {
 	int		i;
 	int		c;
@@ -26,27 +26,11 @@ char		*ft_adjust_tetri(char *map, int size, int  nbt)
 	mapmin = 1;
 	while ((mapmin * mapmin) < (size * 4))
 		mapmin++;
-	mapmin += 1;
 	i = 8000;
-	while (i > 7980)
-	{
-		map[i] = '.';
-		i--;
-	}
-	map[8000] = '|';
-	map[8000 - mapmin] = '|';
-	i = 7999;
-	c = - (mapmin - 3);
-	while (map[i] == '.')
-	{
-		i--;
-		c++;
-	}
-	i = 7000;
 	alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	a = nbt - 1;
 	l = 4;
-	printf("\n---%d---\n", c);
+	c = mapmin - 4;
 	if (c > 0)
 	{
 		while (i >= 800)
@@ -111,7 +95,6 @@ char		*ft_adjust_tetri(char *map, int size, int  nbt)
 			else
 				i--;
 
-		//	printf("%d", a);
 		}
 	}
 	return (map);
@@ -145,6 +128,5 @@ char			*ft_adjust_map(char *map, int nbt)
 			i++;
 		}
 	}
-//	map = ft_adjust_tetri(map, maptmp, nbt);
 	return (map);
 }
